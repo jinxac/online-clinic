@@ -1,6 +1,8 @@
 from django.db import models
 from djchoices.choices import DjangoChoices, ChoiceItem
 from django.core.validators import MinLengthValidator
+from django.contrib.auth.models import User
+
 
 # Create your models here.
 
@@ -25,6 +27,7 @@ class Department(models.Model):
   clinic_id = models.ForeignKey(Clinic, on_delete=models.CASCADE)
 
 class Employee(models.Model):
+  user = models.OneToOneField(User, on_delete=models.CASCADE)
   first_name = models.CharField(max_length=100)
   last_name = models.CharField(max_length=100)
   gender = models.CharField(max_length=1, choices=GenderType.choices, validators=[GenderType.validator])

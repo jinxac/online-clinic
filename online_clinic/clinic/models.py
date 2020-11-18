@@ -24,7 +24,7 @@ class Clinic(models.Model):
 
 class Department(models.Model):
   name = models.CharField(max_length=100)
-  clinic_id = models.ForeignKey(Clinic, on_delete=models.CASCADE)
+  clinic = models.ForeignKey(Clinic, on_delete=models.CASCADE)
 
 class Employee(models.Model):
   user = models.OneToOneField(User, on_delete=models.CASCADE)
@@ -48,7 +48,7 @@ class Role(models.Model):
 
 class EmployeeRole(models.Model):
   employee = models.ForeignKey(Employee, on_delete=models.CASCADE)
-  role_id = models.ForeignKey(Role, on_delete=models.CASCADE)
+  role = models.ForeignKey(Role, on_delete=models.CASCADE)
   start_at = models.DateTimeField(auto_now_add=True)
   end_at = models.DateTimeField(null=True, blank=True)
   is_active = models.BooleanField(default=True)

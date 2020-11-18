@@ -9,7 +9,6 @@ from rest_framework.permissions import IsAdminUser
 
 # Create your views here.
 
-
 class ClinicList(generics.ListCreateAPIView):
   serializer_class = ClinicSerializer
   permission_classes = [IsAdminUser]

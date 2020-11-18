@@ -21,7 +21,7 @@ from rest_framework_simplejwt.views import (
     TokenRefreshView,
 )
 
-from online_clinic.clinic.views import ClinicList
+from online_clinic.clinic.views import ClinicList, register_user
 
 
 urlpatterns = [
@@ -29,4 +29,5 @@ urlpatterns = [
     path('api/token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
     path('api/token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
     path('api/v0/clinics/', ClinicList.as_view(), name='offices'),
+    path('api/v0/register/', register_user, name='register'),
 ]
